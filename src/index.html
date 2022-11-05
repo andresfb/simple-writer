@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Text Editor</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+          integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+    <script src="/js/tinymce/tinymce.min.js"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#editor',
+            plugins: 'code table lists fullscreen',
+            toolbar: 'undo redo | fontfamily | alignleft aligncenter alignright | indent outdent | fullscreen',
+            skin: "oxide-dark",
+            content_css: "dark",
+            setup: function(editor) {
+                editor.on('init', function (e) {
+                    editor.execCommand("fontName", false, "andale mono");
+                    editor.execCommand("fontSize", false, "18px");
+                });
+            }
+        });
+    </script>
+</head>
+<body style="background: #222f3e">
+    <main>
+
+        <section class="container-fluid">
+
+            <div class="row">
+                <div class="col-12 col-lg-9">
+                    <form method="post">
+                        <textarea rows="46" id="editor"></textarea>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
